@@ -39,7 +39,6 @@ class CityController extends Controller
         $userId = Auth::id();
 
         $userPlace = userPlace::where('place_id', $city_id)->where('user_id', $userId)->delete();
-        // var_dump($userPlace);
         return redirect()->route('saved');
     }
 

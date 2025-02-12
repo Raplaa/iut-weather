@@ -6,8 +6,8 @@ services:
       context: .
       dockerfile: dockerfile
       args:
-        - USER_ID=$USER_ID
-        - GROUP_ID=$GROUP_ID
+        USER_ID: 1000
+        GROUP_ID: 1000
     networks:
       - laravel
     ports:

@@ -12,7 +12,6 @@ Route::get('/', function () {
 // Route::get('/weather/{city?}', [WeatherController::class, 'getWeather'])->name('weather');
 
 Route::match(['get', 'post'], '/dashboard', [WeatherController::class, 'getWeather'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::match(['get', 'post'], '/dashboard', [WeatherController::class, 'getWeather'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::post('/saveCity', [CityController::class, 'saveCity'])->name('saveCity');
 Route::delete('/removeCity', [CityController::class, 'removeCity'])->name('removeCity');
 Route::get('/saved', [CityController::class, 'getSavedCities'])->name('saved');
