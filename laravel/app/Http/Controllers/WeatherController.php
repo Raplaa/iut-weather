@@ -31,13 +31,19 @@ class WeatherController extends Controller
             'units' => 'metric',
             'lang' => 'fr',
         ]);
+        $coordinate = Http::get("https://api.openweathermap.org/geo/1.0/direct", [
+            'q' => $city,
+            'limit' => 1,
+            'appid' => $this->apiKey,
+        ]);
 
-        if ($weather->successful() && $forecast->successful()) {
+        if ($weather->successful() && $forecast->successful() && $coordinate->json()) {
             $weatherData = $weather->json();
             $forecastData = $forecast->json();
             return view('dashboard', [
                 'weather' => $weatherData,
-                'forecast' => $forecastData
+                'forecast' => $forecastData,
+                'coordinate' => $coordinate
             ]);
         } else {
             return view('dashboard', [

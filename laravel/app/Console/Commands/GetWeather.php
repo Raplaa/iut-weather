@@ -51,7 +51,7 @@ class GetWeather extends Command
             $this->line("Wind : {$data['wind']['speed']}km/h ");
             $this->line("Weather : {$data['weather'][0]['description']}");
         } else {
-            $this->error('Impossible de récupérer la météo. Vérifiez le nom de la ville.');
+            $this->error('The city is impossible to find');
         }
     }
 }

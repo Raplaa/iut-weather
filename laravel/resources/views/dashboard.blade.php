@@ -42,6 +42,10 @@
                     <p>Température : {{ $weather['main']['temp'] }} °C</p>
                     <p>Conditions : {{ $weather['weather'][0]['description'] }}</p>
                     <p>Humidité : {{ $weather['main']['humidity'] }}%</p>
+                    @if (isset($coordinate))
+                    <p>Lat : {{ $coordinate[0]['lat'] }}</p>
+                    <p>Long : {{ $coordinate[0]['lon'] }}</p>
+                    @endif
                 @elseif (isset($error))
                     <p>{{ $error }}</p>
                 @endif

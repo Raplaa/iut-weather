@@ -41,7 +41,6 @@ class ApiUserController extends Controller
             ]);
         }
     }
-
     public function removeUserPlace(Request $request)
     {
         $userId = Auth::id();
@@ -50,7 +49,6 @@ class ApiUserController extends Controller
         $placeId = $place->id;
         userPlace::where('place_id', $placeId)->where('user_id', $userId)->delete();
     }
-
     public function toggleForecastPlace($place)
     {
         $userId = Auth::id();
